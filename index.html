@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project X</title>
+
+    <!-- Bootstrap css from cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" integrity="sha256-75xVS8o85bn5eLYm/4w6RBwEaK8lmb206bazL2dD8Fg=" crossorigin="anonymous" />
+    <!-- Bootstrap-theme from cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha256-bHQiqcFbnJb1Qhh61RY9cMh6kR0gTuQY6iFOBj1yj00=" crossorigin="anonymous" />
+    <!-- All custom style sheets after bootstrap  -->
+    <link rel="stylesheet" href="css/custom.css">
+
+
+</head>
+<body>
+
+    <!-- Phaser game will start in #gameContainer if it exists -->
+    <div id="gameContainer" style="max-width:540px;margin:auto;"></div>
+
+
+    <!-- Load jquery and Bootstrap .js files from cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js" integrity="sha256-1IKHGl6UjLSIT6CXLqmKgavKBXtr0/jJlaGMEkh+dhw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc=" crossorigin="anonymous"></script>
+
+    <!-- Load Phaser  -->
+    <script src = "src/phaser.js"></script>
+
+
+    <!-- Reads all GET params into a dictionary use for debugging to change lvl... -->
+    <script>
+        var queryDict = {};
+        location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]});
+    </script>
+
+
+    <!-- Start loading src files for game -->
+    <script src = "src/Boot.js"></script>
+    <script src = "src/Preloader.js"></script>
+    <script src = "src/Game.js"></script>
+    <script src = "src/MainMenu.js"></script>
+    <script src = "src/Story.js"></script>
+
+    <!-- Starts game after all src files loaded  -->
+    <script src = "src/Start.js"></script>
+
+</body>
+</html>
