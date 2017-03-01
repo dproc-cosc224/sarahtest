@@ -36,22 +36,21 @@ Game.Preloader.prototype = {
 
 Game.Preloader.resources = {
     /*
-     *  Some examples of how to load various types of assets using this style of loading 
+     * Load all game resources
      */
     'image' : [
-        ['tileset', 'assets/img/level_tileset.png']
-    ],
-
-    'spritesheet' : [
-        ['buttons', 'assets/img/buttons.png', 193, 71]
+        ['tileset', 'assets/img/tile2.png'],
+        ['pacman', 'assets/img/pac.png'],
+        ['dot', 'assets/img/dot.png'],
+        ['cherry', 'assets/img/cherry.png']
     ],
 
     'audio': [
-        ['level_music', ['assets/audio/level_music.mp3', 'assets/audio/level_music.ogg']]
+        ['level_music', ['assets/audio/level_music.mp3', 'assets/audio/DPROC_Main_Loop2.ogg']]
     ],
 
     'tilemap': [
-        ['map1', 'assets/maps/level1.json', null, Phaser.Tilemap.TILED_JSON]    /*JSON style tilemap loading */
+        ['map', 'assets/maps/map.csv']
 
     ]
 
