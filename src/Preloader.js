@@ -39,14 +39,14 @@ Game.Preloader.resources = {
      * Load all game resources
      */
     'image' : [
-        ['tileset', 'assets/img/tile2.png'],
+        ['tiles', 'assets/img/tile2.png'],
         ['pacman', 'assets/img/pac.png'],
         ['dot', 'assets/img/dot.png'],
         ['cherry', 'assets/img/cherry.png']
     ],
 
     'audio': [
-        ['level_music', ['assets/audio/level_music.mp3', 'assets/audio/DPROC_Main_Loop2.ogg']]
+        ['level_music', ['assets/audio/DPROC_Main_Loop2.mp3', 'assets/audio/DPROC_Main_Loop2.ogg']]
     ],
 
     'tilemap': [
