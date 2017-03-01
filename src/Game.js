@@ -8,9 +8,22 @@
 
 Game.Game = function(game) { };
 
+var map;
+var layer;
+var tiles;
+var pac;
+var cursors;
+
+
 Game.Game.prototype = {
 
     create: function(game){
+
+        game.stage.smoothed = true;
+
+        map = this.add.tilemap('map', 32, 32);
+        map.addTilesetImage('tiles');
+        layer = map.createLayer(0);
 
     },
 
