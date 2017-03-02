@@ -42,7 +42,8 @@ Game.Preloader.resources = {
         ['tiles', 'assets/img/tile2.png'],
         ['pacman', 'assets/img/pac.png'],
         ['dot', 'assets/img/dot.png'],
-        ['cherry', 'assets/img/cherry.png']
+        ['cherry', 'assets/img/cherry.png'],
+        ['ghost', 'assets/img/ghost4.png']
     ],
 
     'audio': [
