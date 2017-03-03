@@ -1,5 +1,4 @@
 /**
- * Created by Marty on 2/20/2017.
  *
  * The Preloader state is used to preload assets before the MainMenu is displayed. Once assets have been loaded the Preloader state
  * will start the MainMenu state
@@ -40,7 +39,7 @@ Game.Preloader.resources = {
      */
     'image' : [
         ['tiles', 'assets/img/tile2.png'],
-        ['pacman', 'assets/img/pac.png'],
+        ['pacman', 'assets/img/player.png'],
         ['dot', 'assets/img/dot.png'],
         ['cherry', 'assets/img/cherry.png']
     ],
