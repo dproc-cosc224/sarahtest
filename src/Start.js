@@ -1,5 +1,4 @@
 /**
- * Created by Marty on 2/20/2017.
  *
  * Start.js creates the Phaser game object, adds all of the states to the game object then starts the Boot state.
  */

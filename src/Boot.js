@@ -1,5 +1,4 @@
 /**
- * Created by Marty on 2/20/2017.
  *
  * The Boot state is the first state the game enters to begin loading the game. Will load a 'loading bar' then start the
  * preloader state.

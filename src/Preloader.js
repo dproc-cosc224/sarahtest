@@ -1,5 +1,4 @@
 /**
- * Created by Marty on 2/20/2017.
  *
  * The Preloader state is used to preload assets before the MainMenu is displayed. Once assets have been loaded the Preloader state
  * will start the MainMenu state
@@ -40,9 +39,12 @@ Game.Preloader.resources = {
      */
     'image' : [
         ['tiles', 'assets/img/tile2.png'],
+        ['ptiles', 'assets/img/TileCraftGroundSet.png'],
         ['pacman', 'assets/img/pac.png'],
         ['dot', 'assets/img/dot.png'],
-        ['cherry', 'assets/img/cherry.png']
+        ['cherry', 'assets/img/cherry.png'],
+        ['femur', 'assets/img/femur.png'],
+        ['ham', 'assets/img/ham.png']
     ],
 
     'audio': [
@@ -50,8 +52,18 @@ Game.Preloader.resources = {
     ],
 
     'tilemap': [
-        ['map', 'assets/maps/map.csv']
+        ['map', 'assets/maps/map.csv'],
+        ['pupmap', 'assets/maps/pupmap.csv']
 
+
+    ],
+
+    'spritesheet': [
+        ['pup', 'assets/img/pup.png', 32, 32],
+        ['down', 'assets/img/arrow_down.png', 20, 20],
+        ['left', 'assets/img/arrow_left.png', 20, 20],
+        ['right', 'assets/img/arrow_right.png', 20, 20],
+        ['up', 'assets/img/arrow_up.png', 20, 20]
     ]
 
 };
