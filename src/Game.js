@@ -29,10 +29,10 @@ var treats;
 var sTreats;
 var sTreatsIndex;
 var safetile;
-var upButton;
-var downButton;
-var leftButton;
-var rightButton;
+//var upButton;
+//var downButton;
+//var leftButton;
+//var rightButton;
 var startX;
 var startY;
 var endX;
@@ -112,9 +112,9 @@ Game.Game.prototype = {
         timer = this.time.create(false);
         timer.loop(1000, this.updateCounter, this);
         timer.start();
-        time = 60;
+        time = 20;
         timeText = this.add.text(400, 32, 'Time Left : ' + time , { fontSize: '32px', fill: '#ffffff' } );
-        timeText.visibility = true;
+        timeText.visible = true;
 
 
 
@@ -132,10 +132,10 @@ Game.Game.prototype = {
         //set the score to zero
         score = 0;
         scoreText = this.add.text(32 ,32, 'score : 0', { fontSize: '32px', fill: '#ffffff'});
-        scoreText.visibilty = true;
+        scoreText.visible = true;
 
         //set the gameOverText and set it to not visible
-        gameOverText = this.add.text((this.worldX/2) (this.worldY/2), 'Congratulation! You Scored : ' + score , { fontSize: '32px', fill: '#ffffff'});
+        gameOverText = this.add.text((game.width/2)-142, (game.height/2)-50, 'Congratulation! You Scored : ' + score , { fontSize: '32px', fill: '#ffffff'});
         gameOverText.visible = false;
 
         // upButton = this.add.button((9.5 * gridsize), (23 * gridsize), 'up', this.actionOnClick, this);
@@ -165,8 +165,8 @@ Game.Game.prototype = {
             up : game.input.keyboard.addKey(Phaser.Keyboard.W),
             down: game.input.keyboard.addKey(Phaser.Keyboard.S),
             right: game.input.keyboard.addKey(Phaser.Keyboard.D),
-            left: game.input.keyboard.addKey(Phaser.Keyboard.A),
-        }
+            left: game.input.keyboard.addKey(Phaser.Keyboard.A)
+        };
 
         this.move(Phaser.RIGHT);
 
@@ -370,10 +370,11 @@ Game.Game.prototype = {
         player.kill();
 
         //set the visibilty of the text
-        gameOverText.text = 'Congratulation! You Scored : ' + score;
-        gameOverText.visibilty = true;
-        scoreText.visibilty = false;
-        timeText.visibility = false;
+        gameOverText.text = 'Congratulations! \n You Scored : ' + score;
+
+        gameOverText.visible = true;
+        scoreText.visible = false;
+        timeText.visible = false;
 
 
 
@@ -420,6 +421,6 @@ Game.Game.prototype = {
         }
 
 
-    },
+    }
 
 };
