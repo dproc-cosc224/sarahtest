@@ -37,7 +37,12 @@ var startX;
 var startY;
 var endX;
 var endY;
-
+var score;
+var scoreText;
+var timer;
+var time;
+var timeText;
+var gameOverText;
 
 
 Game.Game.prototype = {
@@ -79,7 +84,10 @@ Game.Game.prototype = {
         sTreatsIndex = 78;
 
 
+
         game.stage.smoothed = true;
+
+
 
         map = this.add.tilemap('pupmap', gridsize, gridsize);
         map.addTilesetImage('ptiles');
@@ -100,6 +108,17 @@ Game.Game.prototype = {
 
         layer.resizeWorld();
 
+        //create the timer
+        timer = this.time.create(false);
+        timer.loop(1000, this.updateCounter, this);
+        timer.start();
+        time = 60;
+        timeText = this.add.text(400, 32, 'Time Left : ' + time , { fontSize: '32px', fill: '#ffffff' } );
+        timeText.visibility = true;
+
+
+
+        //create the player
         player = this.add.sprite((startPosX * gridsize) + (gridsize/2), (startPosY * gridsize) + (gridsize/2), 'pup', 0);
         player.anchor.setTo(0.5);
         player.animations.add('walkLeft', [0, 1 , 2 , 1], 20, true);
@@ -109,6 +128,15 @@ Game.Game.prototype = {
 
         this.physics.arcade.enable(player);
         player.body.setSize(gridsize, gridsize, 0, 0);
+
+        //set the score to zero
+        score = 0;
+        scoreText = this.add.text(32 ,32, 'score : 0', { fontSize: '32px', fill: '#ffffff'});
+        scoreText.visibilty = true;
+
+        //set the gameOverText and set it to not visible
+        gameOverText = this.add.text((this.worldX/2) (this.worldY/2), 'Congratulation! You Scored : ' + score , { fontSize: '32px', fill: '#ffffff'});
+        gameOverText.visible = false;
 
         // upButton = this.add.button((9.5 * gridsize), (23 * gridsize), 'up', this.actionOnClick, this);
         // upButton.scale.setTo(2.5,2.5);
@@ -145,6 +173,13 @@ Game.Game.prototype = {
         game.input.onDown.add(this.beginSwipe, this);
 
 
+    },
+    updateCounter : function(){
+        time--;
+        timeText.text = 'Time Left : ' + time;
+        if(time === 0){
+            this.gameOver();
+        }
     },
 
     beginSwipe : function(){
@@ -307,19 +342,43 @@ Game.Game.prototype = {
     },
 
     eatTreats: function (player, treat){
+        //remove the femur
         treat.kill();
 
-        if(treats.total === 0){
-            treats.callAll('revive');
-        }
+        //update the score
+        score += 20;
+        scoreText.text = 'Score: ' + score;
+
+
     },
 
     eatSTreats: function (player, treat){
+        //remove the ham
         treat.kill();
 
-        if(treats.total === 0){
-            treats.callAll('revive');
-        }
+        //update the score
+        score += 50;
+        scoreText.text = 'Score: ' + score;
+
+    },
+
+    gameOver: function(){
+        //stop the timer
+        timer.stop();
+
+        //remove the player
+        player.kill();
+
+        //set the visibilty of the text
+        gameOverText.text = 'Congratulation! You Scored : ' + score;
+        gameOverText.visibilty = true;
+        scoreText.visibilty = false;
+        timeText.visibility = false;
+
+
+
+
+
     },
 
     update: function(game) {
@@ -349,9 +408,17 @@ Game.Game.prototype = {
         //every frame check to see if the a key is being pressed
         this.checkKeys();
 
+        //as long as you have a vaild direction to turn in, turn
         if(turning !== Phaser.NONE){
             this.turn();
         }
+        //win condition
+        if(treats.total === 0  && sTreats.total == 0){
+            // treats.callAll('revive');
+            // sTreats.callAll('revive');
+            this.gameOver();
+        }
+
 
     },
 
